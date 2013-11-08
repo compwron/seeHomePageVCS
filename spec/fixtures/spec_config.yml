@@ -1,0 +1,6 @@
+starting_date: '2013-10-01'
+events_page_files: src/main/webapp/foo.html src/main/webapp/scripts/foo.js
+root_dir: ~/myproject/
+page_to_screenshot: http://localhost:8080/foo.html
+deploy_command: gradle localDeploy
+directory_to_put_screenshots: /tmp/

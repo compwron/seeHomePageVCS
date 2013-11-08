@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+require_relative "../lib/screenshot_taker"
+require_relative "../lib/taker_config"
+
+require 'trollop'
+
+opts = Trollop::options do
+  opt :config, "Location of config file (relative)", :default => 'config/config.yml'
+end
+
+def run_command opts
+  taker = ScreenshotTaker.new(TakerConfig.new(opts[:config]))
+  commits = taker.commits
+  puts "Found #{commits} commits for specified watched files"
+
+  screenshots_taken_count = taker.take
+  puts "Took #{screenshots_taken_count} screenshots"
+end
+
